@@ -135,15 +135,15 @@ shinyServer(function(input, output) {
     KPI_Low_Max_value = input$KPI1     
     KPI_Medium_Max_value = input$KPI2
     
+    
     crosstab <- foo%>%
-      filter(DIVISION == "Southwest")%>%
+      filter(DIVISION=="Southwest") %>%
       group_by(NAME, POS)%>%
       mutate(PPG = as.numeric(as.character(PTS)) / as.numeric(as.character(G))) %>% 
       summarize(avg_pts = mean(PPG)) %>% 
       mutate(kpi = ifelse(avg_pts <= KPI_Low_Max_value, 'Low', ifelse(avg_pts <= KPI_Medium_Max_value, 'Medium', 'High'))) %>% 
       rename(KPI=kpi)
-    
-    
+
     plot8 <- ggplot() + 
       coord_cartesian() + 
       scale_x_discrete() +

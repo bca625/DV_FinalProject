@@ -55,6 +55,12 @@ dashboardPage(
       
       tabItem(tabName = "crosstab",
               h4("Points By Position"),
+              
+              radioButtons("Division", 
+                           "Choose a Divison:",
+                           choices = list("Atlantic" = 1, "Southwest" = 2,
+                                          "Southeast" = 3, "Pacific" = 4), selected = 1),
+              
               sliderInput("KPI1", 
                           "KPI Low Max value:", 
                           min = 0,

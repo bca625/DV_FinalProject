@@ -3,12 +3,12 @@
 ---
   Data Visualization Final Project: NBA Statistics for the 2014-2015 Season
 ===
-**Bryan Amaefule, Shannon Lu, Kevin Lee**
-
+**Bryan Amaefule, Shannon Lu, Kevin Lee**  
+[Shiny Application](https://ba7433.shinyapps.io/DV_FinalProject)
 
 **Points By Team**  
 ![](./pics/PointsByTeam.png)  
-1. Drag TM (team) into the columns as a discrete variable. 
+1. Drag TM (team) into the columns as a discrete variable.  
 2. Create new parameter titled TPPG (Team Points Per Game) which is the sum of points by all the players divided by 82 and drag that into rows.  
 3. Drag TM to color, and TPPG to label.  
 4. Click on analytics tab and drag average line to table.  
@@ -31,6 +31,8 @@
 4. Create calculated field called PPG (PTS / G) and aggregate as sum.  
 5. Drag Player to label and PPG to label.  
 
+**Points Histogram**  
+![](./pics/Histogram.png)  
 
 **Boxplot**  
 ![](./pics/Boxplot.png)   

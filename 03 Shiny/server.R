@@ -129,6 +129,7 @@ shinyServer(function(input, output) {
   
   
   output$crosstab <- renderPlot({
+    NBA <- df%>%filter(TM != "TOT", TM != "Tm")
     teams <- tm%>%rename(TM = TEAM)
     foo <- right_join(NBA, teams, by="TM")
     

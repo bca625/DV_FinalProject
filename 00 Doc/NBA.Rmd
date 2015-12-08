@@ -7,12 +7,27 @@
 
 
 **Points By Team**  
-![](./pics/PointsByTeam.png)
+![](./pics/PointsByTeam.png)  
+1. Put the teams (TM) into the columns as a discrete variable. 
+2. Create new parameter titled TPPG (Team Points Per Game) which is the sum of points by all the players divided by 82 and drag that into rows.  
+3. Drag TM to color, and TPPG to label.  
+4. Click on analytics tab and drag average line to table.  
+5. Edit the average line and change label to value.
+
 
 **Points By Position**  
-![](./pics/PointsByPosition.png)
+![](./pics/PointsByPosition.png)  
+1. Put the teams (TM) into the columns as a discrete variable.  
+2. Drag PTS to rows and aggregate measure as sum.  
+3. Drag TM to filter and select all but "TOT".  
+4. Drag POS to color.  
+5. Drag POS to label.  
 
-**Crosstab**
+**Points By Player**  
+![](./pics/PointsByPlayer.png) 
+
+**Crosstab**  
+![](./pics/AssistsRebounds.png)
 
 **Assists and Rebounds by Position**  
 ![](./pics/AssistsRebounds.png)

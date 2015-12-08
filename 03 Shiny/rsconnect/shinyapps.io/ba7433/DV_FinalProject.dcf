@@ -1,8 +1,8 @@
 name: DV_FinalProject
 account: ba7433
 server: shinyapps.io
-bundleId: 326860
+bundleId: 327010
 url: https://ba7433.shinyapps.io/DV_FinalProject
-when: 1449593380.12113
+when: 1449605612.40669
 asMultiple: FALSE
 asStatic: FALSE

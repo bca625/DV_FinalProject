@@ -1,0 +1,18 @@
+---
+  output: html_document
+---
+  Data Visualization Final Project: NBA Statistics for the 2014-2015 Season
+===
+**Bryan Amaefule, Shannon Lu, Kevin Lee**
+
+
+**Points By Team**
+
+**Points By Position**
+
+**Crosstab**
+
+**Assists and Rebounds by Position**
+
+**Steals and Blocks by Position**
+

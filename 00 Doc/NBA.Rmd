@@ -6,13 +6,19 @@
 **Bryan Amaefule, Shannon Lu, Kevin Lee**
 
 
-**Points By Team**
+**Points By Team**  
+![](./pics/PointsByTeam.png)
 
-**Points By Position**
+**Points By Position**  
+![](./pics/PointsByPosition.png)
 
 **Crosstab**
 
-**Assists and Rebounds by Position**
+**Assists and Rebounds by Position**  
+![](./pics/AssistsRebounds.png)
 
-**Steals and Blocks by Position**
+**Steals and Blocks by Position**  
+![](./pics/StealsBlocks.png)
 
+**Map**  
+![](./pics/Map.png)

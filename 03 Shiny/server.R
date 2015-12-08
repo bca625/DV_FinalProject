@@ -13,6 +13,8 @@ shinyServer(function(input, output) {
   
   df <- data.frame(fromJSON(getURL(URLencode('skipper.cs.utexas.edu:5001/rest/native/?query="select * from GENERAL_STATS order by pos"'),httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_ba7433', PASS='orcl_ba7433', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE) ))
   
+  tm <- data.frame(fromJSON(getURL(URLencode('skipper.cs.utexas.edu:5001/rest/native/?query="select * from TEAMS "'),httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_ba7433', PASS='orcl_ba7433', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE) ))
+  
   
   
   
@@ -122,6 +124,50 @@ shinyServer(function(input, output) {
       ) 
     
     return(plot7)
+    
+  })
+  
+  
+  output$crosstab <- renderPlot({
+    teams <- tm%>%rename(TM = TEAM)
+    foo <- right_join(NBA, teams, by="TM")
+    
+    KPI_Low_Max_value = input$KPI1     
+    KPI_Medium_Max_value = input$KPI2
+    
+    crosstab <- foo%>%
+      filter(DIVISION == "Southwest")%>%
+      group_by(NAME, POS)%>%
+      mutate(PPG = as.numeric(as.character(PTS)) / as.numeric(as.character(G))) %>% 
+      summarize(avg_pts = mean(PPG)) %>% 
+      mutate(kpi = ifelse(avg_pts <= KPI_Low_Max_value, 'Low', ifelse(avg_pts <= KPI_Medium_Max_value, 'Medium', 'High'))) %>% 
+      rename(KPI=kpi)
+    
+    
+    plot8 <- ggplot() + 
+      coord_cartesian() + 
+      scale_x_discrete() +
+      scale_y_discrete() +
+      labs(title='Points by Position in The Southwest Division') +
+      labs(x=paste("TEAM"), y=paste("POSITION")) +
+      layer(data=crosstab, 
+            mapping=aes(x=NAME, y=POS, label=round(avg_pts, 2)), 
+            stat="identity", 
+            stat_params=list(), 
+            geom="text",
+            geom_params=list(colour="black"), 
+            position=position_identity()
+      ) +
+      layer(data=crosstab, 
+            mapping=aes(x=NAME, y=POS, fill=KPI), 
+            stat="identity", 
+            stat_params=list(), 
+            geom="tile",
+            geom_params=list(alpha=0.50), 
+            position=position_identity()
+      )
+    
+    return(plot8)
     
   })
   

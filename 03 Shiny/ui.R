@@ -15,7 +15,8 @@ dashboardPage(
                      menuItem("Assists By Position", tabName = "assistsbypos", icon = icon("line-chart")),
                      menuItem("Rebounds By Position", tabName = "rebsbypos", icon = icon("line-chart")),
                      menuItem("Steals By Position", tabName = "stealsbypos", icon = icon("line-chart")),
-                     menuItem("Blocks By Position", tabName = "blocksbypos", icon = icon("line-chart"))
+                     menuItem("Blocks By Position", tabName = "blocksbypos", icon = icon("line-chart")),
+                     menuItem("Points By Position in Southwest Division", tabName = "crosstab", icon = icon("table"))
                    )
   ),
   dashboardBody(
@@ -50,6 +51,22 @@ dashboardPage(
       tabItem(tabName = "blocksbypos",
               h4("Blocks By Position"),
               plotOutput("blocksbypos")
+      ),
+      
+      tabItem(tabName = "crosstab",
+              h4("Points By Position"),
+              sliderInput("KPI1", 
+                          "KPI Low Max value:", 
+                          min = 0,
+                          max = 14, 
+                          value = 7),
+              sliderInput("KPI2", 
+                          "KPI Medium Max value:", 
+                          min = 5,
+                          max = 30, 
+                          value = 20),
+              plotOutput("crosstab")
+              
       )
       
     )  
